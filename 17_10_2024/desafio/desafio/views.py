@@ -18,3 +18,11 @@ def herencia1(request):
     template = loader.get_template('herencia1.html')
     context = {}
     return HttpResponse(template.render(context, request))
+def herencia2(request):
+    template = loader.get_template('herencia2.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+def herencia3(request):
+    template = loader.get_template('herencia3.html')
+    context = {}
+    return HttpResponse(template.render(context, request))

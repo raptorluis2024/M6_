@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import contenido,index,herencia1
+from .views import contenido,index,herencia1,herencia2,herencia3
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('contenido/',contenido),
     path('',include("utiles.urls")),
-    path('herencia1/',herencia1)
+    path('herencia1/',herencia1),
+    path('herencia2/',herencia2),
+    path('herencia3/',herencia3)
 ]
