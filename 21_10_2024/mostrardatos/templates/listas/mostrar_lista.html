@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mostrando datos de una lista en Django</h1>
+    {%if cursos%}    
+        <p>{{cursos}}</p>
+        {% for c in cursos%}
+        <p>{{c}}</p>
+        {%endfor%}
+        <p>
+        <ul>
+                {% for c in cursos%}
+                <li>{{c}}</li>
+                {%endfor%}
+            </ul>
+        <p>Curso 1 : {{cursos.1}}</p>
+        </p>
+       {%else%} 
+       <p>No hay cursos disponibles</p>
+       {%endif%}
+</body>
+</html>
