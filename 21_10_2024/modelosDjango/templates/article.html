@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Resultado de la busqueda</h3>
+    <p>
+        Valor buscado {{query}}
+
+    </p>
+    <p>
+        resultado {{articulos}}
+    </p>
+    <p>
+        <ul>
+            {%for a in articulos%}
+            <li>{{a}}{{a.category}}</li>
+            {%endfor%}
+        </ul>
+    </p>
+    <p>
+        <a href="/">Volver</a>
+    </p>
+</body>
+</html>

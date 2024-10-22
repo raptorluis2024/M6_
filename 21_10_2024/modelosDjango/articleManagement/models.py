@@ -18,3 +18,6 @@ class Article(models.Model):
         self.full_clean()
         #super().save(*args, **kwargs)
         super(Article,self).save(*args, **kwargs)
+    
+    def __str__(self):
+        return self.name

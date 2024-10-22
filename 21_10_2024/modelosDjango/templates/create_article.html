@@ -6,11 +6,14 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    
+     <input type="submit" name="enviar" id="enviar" value="Enviar">   
+    </form>
     <p>
-        <a href="buscador/">Ir al buscador</a>
-    </p>
-    <p>
-        <a href="create_article/">Crear Articulo</a>
+        <a href="/">Volver</a>
     </p>
 </body>
 </html>
