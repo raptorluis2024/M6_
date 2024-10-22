@@ -15,6 +15,6 @@ class Article(models.Model):
             raise ValidationError("El precio debe ser mayor que 0.")
 
     def save(self, *args, **kwargs):
-        #self.full_clean()
-        super().save(*args, **kwargs)
-        #super(Article,self).save(*args, **kwargs)
+        self.full_clean()
+        #super().save(*args, **kwargs)
+        super(Article,self).save(*args, **kwargs)
