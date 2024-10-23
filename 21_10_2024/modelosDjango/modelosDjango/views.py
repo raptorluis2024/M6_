@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
 from articleManagement.models import Article
-
 from articleManagement.forms import FormularioArticle
 
+
+from django.contrib import messages
 # Create your views here.
 
 from django.http import HttpResponse
@@ -32,7 +33,9 @@ def create_article(request):
         form = FormularioArticle(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/")
+            messages.success(request, "El producto fue creado satisfactoriamente")
+            return redirect("/create_article")
+        
     
     context = {'form': form}
     return HttpResponse(template.render(context, request))

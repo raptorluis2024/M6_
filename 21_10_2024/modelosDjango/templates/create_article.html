@@ -8,8 +8,17 @@
 <body>
     <form action="" method="POST">
     {% csrf_token %}
+    <div>
+        {% if messages %}
+            {% for message in messages%}
+               {{message}}
+            {%endfor%}
+
+        {%endif%}
+    </div>
     {{form}}
     
+  
      <input type="submit" name="enviar" id="enviar" value="Enviar">   
     </form>
     <p>
