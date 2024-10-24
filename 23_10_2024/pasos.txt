@@ -1,0 +1,16 @@
+git clone https://github.com/raptorluis2024/M6_.git
+cd m6_
+cd 23_10_2024
+Python -m venv venv
+venv\script\actívate
+pip install -r requirements.txt
+crear la BD cruddjango (postgres)
+Python manage.py makemigrations
+Python manage.py migrate
+Python manage.py createsuperuser
+Python manage.py runserver
+git pull origin main
+
+
+
+
