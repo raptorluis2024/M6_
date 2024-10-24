@@ -54,7 +54,7 @@ ROOT_URLCONF = 'gestor_tareas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates','templates/layout'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
