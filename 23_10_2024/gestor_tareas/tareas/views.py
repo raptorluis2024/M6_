@@ -2,6 +2,7 @@ from django.shortcuts import render,loader,redirect
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -31,6 +32,7 @@ def sign_up(request):
             context={"error":"Las contraseñas no coinciden",'form': UserCreationForm}
             return HttpResponse(template.render(context, request))
         
+@login_required      
 def tareas(request):
     template = loader.get_template('tareas.html')
     context = {}
