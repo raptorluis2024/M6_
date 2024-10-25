@@ -4,12 +4,17 @@
 {% include 'layout/navbar.html'%}
 <h1>Tareas</h1>
 <p>
+    <ul>
     {%for tarea in tareas%}
     
     <h3>{{tarea.titulo}}</h3>
-    <p>{{tarea.descripcion}}</p>
-    <p>{{tarea.user.username}}</p>
+    <li>{{tarea.descripcion}}</li>
+    <li>{{tarea.user.username}}</li>
+    <a href="{% url 'detalleTarea' tarea.id %}">Editar tarea</a>
+    <a href="{% url 'borrarTarea' tarea.id %}">Eliminar tarea</a>
     {%endfor%}
+    
+</ul>
 </p>
 <p>
     <a href="/crear_tarea/">Ir a crear tarea</a>

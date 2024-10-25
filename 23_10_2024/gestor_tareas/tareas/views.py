@@ -1,4 +1,4 @@
-from django.shortcuts import render,loader,redirect
+from django.shortcuts import render,loader,redirect,get_object_or_404
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout
@@ -12,6 +12,32 @@ def crear_tarea1(request):
     template = loader.get_template('crear_tarea.html')
     context = {'form':Formulario_Tarea}
     return HttpResponse(template.render(context, request))
+
+
+def detalle_tarea(request, tarea_id):
+    #tarea = Tarea.objects.get(pk=tarea_id)
+    if request.method == 'GET':
+        template = loader.get_template('detalle_tarea.html')
+        tarea = get_object_or_404(Tarea, pk=tarea_id)
+        form = Formulario_Tarea(instance=tarea)
+        context = {'tarea': tarea, 'form':form}
+        return HttpResponse(template.render(context, request))
+    else:
+        try:
+            tarea = get_object_or_404(Tarea, pk=tarea_id)
+            form = Formulario_Tarea(request.POST, instance=tarea)
+            #form = Formulario_Tarea(instance=tarea)
+            form.save()
+            return redirect("tareas")
+        except:
+            template = loader.get_template('detalle_tarea.html')
+            context = {'tarea':tarea,'form':form, 'error':"Error al modificar la tarea"}
+            return HttpResponse(template.render(context, request))
+
+def borrar_tarea(request, tarea_id):
+    tarea = get_object_or_404(Tarea, pk=tarea_id)
+    tarea.delete()
+    return redirect('tareas')
 
 def crear_tarea(request):
     if request.method == 'GET':

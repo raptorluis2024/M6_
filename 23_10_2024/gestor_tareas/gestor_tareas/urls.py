@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home
-from tareas.views import sign_up,tareas,sign_out,log_in,crear_tarea
+from tareas.views import sign_up,tareas,sign_out,log_in,crear_tarea,detalle_tarea,borrar_tarea
 
 
 urlpatterns = [
@@ -27,6 +27,9 @@ urlpatterns = [
     path('tareas/', tareas, name='tareas'),
     path('logout/', sign_out, name='logout'),
     path('login/', log_in, name="login"),
-    path('crear_tarea/',crear_tarea)
+    path('crear_tarea/',crear_tarea),
+    path('detalleTarea/<int:tarea_id>', detalle_tarea,
+    name="detalleTarea"),
+    path('detalleTarea/<int:tarea_id>/delete', borrar_tarea, name="borrarTarea")
     
 ]
