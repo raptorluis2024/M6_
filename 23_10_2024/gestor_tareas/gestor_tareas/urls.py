@@ -17,15 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home
-from tareas.views import sign_up,tareas,sign_out,log_in
+from tareas.views import sign_up,tareas,sign_out,log_in,crear_tarea
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('sign_up/', sign_up),
-    path('tareas/', tareas),
+    path('tareas/', tareas, name='tareas'),
     path('logout/', sign_out, name='logout'),
     path('login/', log_in, name="login"),
+    path('crear_tarea/',crear_tarea)
     
 ]

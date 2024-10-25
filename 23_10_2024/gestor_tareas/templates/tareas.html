@@ -3,4 +3,15 @@
 {%block content%}
 {% include 'layout/navbar.html'%}
 <h1>Tareas</h1>
+<p>
+    {%for tarea in tareas%}
+    
+    <h3>{{tarea.titulo}}</h3>
+    <p>{{tarea.descripcion}}</p>
+    <p>{{tarea.user.username}}</p>
+    {%endfor%}
+</p>
+<p>
+    <a href="/crear_tarea/">Ir a crear tarea</a>
+</p>
 {%endblock%}
